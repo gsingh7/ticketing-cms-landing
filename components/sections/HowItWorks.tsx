@@ -59,16 +59,11 @@ function StepItem({ step, index }: { step: (typeof steps)[0]; index: number }) {
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
 
-  // Place step 2 in the right column
-  const isRightColumn = index === 1;
-
   return (
     <motion.div
       ref={targetRef}
       style={{ opacity, scale }}
-      className={`relative flex items-start ${
-        isRightColumn ? "md:col-start-2" : ""
-      } ${index === 2 ? "md:col-span-2 max-w-md mx-auto" : ""}`}
+      className="relative flex items-start"
     >
       {/* Icon Circle */}
       <div className="mr-4 flex-shrink-0">

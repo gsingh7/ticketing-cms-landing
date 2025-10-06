@@ -37,7 +37,7 @@ export function GradientBackground({
     return (
       <div
         className={cn(
-          "fixed inset-0 z-[-1] overflow-hidden",
+          "fixed inset-0 z-[-1] overflow-hidden pointer-events-none",
           animate && "animate-gradient-slow",
           className
         )}
@@ -83,7 +83,7 @@ export function GradientBackground({
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[-1] overflow-hidden",
+        "fixed inset-0 z-[-1] overflow-hidden pointer-events-none",
         animate && "animate-gradient-slow",
         className
       )}

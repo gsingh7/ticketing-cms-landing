@@ -56,7 +56,7 @@ export function ScreenshotsGallery() {
               </div>
             </div>
 
-            <div className="mb-6 grid grid-cols-2 gap-6">
+            <div className="mb-6">
               <div>
                 <label className="text-sm text-foreground/70">
                   Avg cost per hour ($)
