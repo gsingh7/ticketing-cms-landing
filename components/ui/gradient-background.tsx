@@ -70,15 +70,18 @@ export function GradientBackground({
   // Intensity mappings
   const blurMappings = {
     light: "200px",
-    medium: "300px",
-    strong: "400px",
+    medium: "100px",
+    strong: "50px",
   };
 
   const opacityMappings = {
-    light: "0.15",
-    medium: "0.3",
-    strong: "0.5",
+    light: 0.4,
+    medium: 0.7,
+    strong: 1,
   };
+
+  const blurAmount = blurMappings[intensity];
+  const opacityAmount = opacityMappings[intensity];
 
   return (
     <div
@@ -94,8 +97,8 @@ export function GradientBackground({
         className="absolute left-0 top-0 bottom-0 w-[40vw]"
         style={{
           background: `linear-gradient(90deg, ${primaryColor}40 -10%, transparent 100%)`,
-          filter: `blur(100px)`,
-          opacity: 0.7,
+          filter: `blur(${blurAmount})`,
+          opacity: opacityAmount,
         }}
       />
 
@@ -104,8 +107,8 @@ export function GradientBackground({
         className="absolute right-0 top-0 bottom-0 w-[40vw]"
         style={{
           background: `linear-gradient(-90deg, ${secondaryColor}40 -10%, transparent 100%)`,
-          filter: `blur(100px)`,
-          opacity: 0.7,
+          filter: `blur(${blurAmount})`,
+          opacity: opacityAmount,
         }}
       />
     </div>

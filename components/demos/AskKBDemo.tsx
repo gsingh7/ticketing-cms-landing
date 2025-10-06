@@ -67,7 +67,7 @@ export function AskKBDemo() {
       }
     }, 35);
     return () => clearInterval(typeId);
-  }, [autoIndex]);
+  }, [autoIndex, loading, isTyping, demoQuestions]);
 
   // After an answer finishes, schedule next demo
   React.useEffect(() => {
