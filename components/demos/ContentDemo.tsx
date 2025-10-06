@@ -27,47 +27,47 @@ export function ContentDemo() {
   }
 
   return (
-    <div className="absolute inset-0 grid grid-cols-2 w-full h-full">
+    <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-2 w-full h-full">
       {/* Editor */}
-      <div className="border-r border-border/50 bg-muted/10 p-4 overflow-auto min-w-[260px]">
+      <div className="border-b lg:border-b-0 lg:border-r border-border/50 bg-muted/10 p-3 sm:p-4 overflow-auto min-w-0">
         <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
           Inbuilt Editor
         </div>
         <input
-          className="w-full bg-muted/40 border border-border/50 rounded px-3 py-2.5 text-sm mb-3 h-11 text-foreground"
+          className="w-full bg-muted/40 border border-border/50 rounded px-2 sm:px-3 py-2 sm:py-2.5 text-xs sm:text-sm mb-3 h-10 sm:h-11 text-foreground"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <div className="flex flex-wrap gap-2 mb-3">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3">
           {tags.map((t) => (
             <span
               key={t}
-              className="text-[11px] px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+              className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
             >
               {t}
             </span>
           ))}
           <button
-            className="text-[11px] px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/20"
+            className="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full bg-accent/10 text-accent border border-accent/20"
             onClick={autoFill}
           >
             Auto-fill tags
           </button>
         </div>
         <textarea
-          className="w-full h-60 bg-muted/40 border border-border/50 rounded px-3 py-2 text-sm text-foreground"
+          className="w-full h-40 sm:h-48 lg:h-60 bg-muted/40 border border-border/50 rounded px-2 sm:px-3 py-2 text-xs sm:text-sm text-foreground"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-        <div className="mt-3 flex gap-2">
+        <div className="mt-3 flex flex-wrap gap-2 items-center">
           <button
-            className="rounded bg-primary text-primary-foreground px-3 py-2 text-sm"
+            className="rounded bg-primary text-primary-foreground px-3 py-2 text-xs sm:text-sm"
             onClick={() => setPublished(true)}
           >
             Publish to KB
           </button>
           {published ? (
-            <span className="text-[11px] px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-medium">
+            <span className="text-[10px] sm:text-[11px] px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-medium">
               Published
             </span>
           ) : null}
@@ -75,13 +75,17 @@ export function ContentDemo() {
       </div>
 
       {/* Preview */}
-      <div className="p-4 overflow-auto">
+      <div className="p-3 sm:p-4 overflow-auto">
         <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
           Preview
         </div>
-        <div className="rounded border border-border/50 p-4">
-          <h3 className="font-semibold mb-2 text-foreground">{title}</h3>
-          <p className="text-sm text-foreground whitespace-pre-wrap">{body}</p>
+        <div className="rounded border border-border/50 p-3 sm:p-4">
+          <h3 className="font-semibold mb-2 text-sm sm:text-base text-foreground">
+            {title}
+          </h3>
+          <p className="text-xs sm:text-sm text-foreground whitespace-pre-wrap">
+            {body}
+          </p>
         </div>
       </div>
     </div>
