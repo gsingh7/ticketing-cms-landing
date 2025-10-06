@@ -81,9 +81,7 @@ export function ContentDemo() {
         </div>
         <div className="rounded border border-white/10 p-4">
           <h3 className="font-semibold mb-2">{title}</h3>
-          <p className="text-sm text-foreground/80 whitespace-pre-wrap">
-            {body}
-          </p>
+          <p className="text-sm text-foreground whitespace-pre-wrap">{body}</p>
         </div>
       </div>
     </div>

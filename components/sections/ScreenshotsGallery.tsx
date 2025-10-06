@@ -12,7 +12,6 @@ function formatCurrency(n: number) {
 
 export function ScreenshotsGallery() {
   const [ticketsPerMonth, setTicketsPerMonth] = React.useState(1200);
-  const [helpdeskAgents, setHelpdeskAgents] = React.useState(12);
   const [avgCostPerHour, setAvgCostPerHour] = React.useState(45);
   const [avgMinutesPerTicket, setAvgMinutesPerTicket] = React.useState(18);
 
@@ -26,8 +25,6 @@ export function ScreenshotsGallery() {
   const hoursSaved = originalHours - newHours;
 
   const monthlySavings = hoursSaved * avgCostPerHour;
-  const yearlySavings = monthlySavings * 12;
-
   return (
     <section className="py-32 px-4 sm:px-8">
       <div className="container mx-auto">
@@ -35,8 +32,8 @@ export function ScreenshotsGallery() {
           ROI Estimator
         </h2>
         <p className="text-center text-foreground/70 max-w-2xl mx-auto mb-10">
-          Estimate yearly savings from fewer tickets and faster resolutions with
-          Wavebase.
+          Estimate monthly savings from fewer tickets and faster resolutions
+          with Wavebase.
         </p>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -60,20 +57,6 @@ export function ScreenshotsGallery() {
             </div>
 
             <div className="mb-6 grid grid-cols-2 gap-6">
-              <div>
-                <label className="text-sm text-foreground/70">
-                  Helpdesk agents
-                </label>
-                <input
-                  type="range"
-                  min={1}
-                  max={200}
-                  value={helpdeskAgents}
-                  onChange={(e) => setHelpdeskAgents(parseInt(e.target.value))}
-                  className="w-full"
-                />
-                <div className="text-lg font-semibold">{helpdeskAgents}</div>
-              </div>
               <div>
                 <label className="text-sm text-foreground/70">
                   Avg cost per hour ($)
@@ -112,7 +95,9 @@ export function ScreenshotsGallery() {
 
           {/* Results */}
           <div className="rounded-2xl border border-white/10 p-6 bg-background/60">
-            <h3 className="text-2xl font-semibold mb-4">Your Yearly Savings</h3>
+            <h3 className="text-2xl font-semibold mb-4">
+              Your Monthly Savings
+            </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="rounded-xl border border-white/10 p-4 bg-muted/30">
                 <div className="text-xs uppercase tracking-widest text-foreground/60 mb-2">
@@ -135,7 +120,7 @@ export function ScreenshotsGallery() {
                   Estimated Savings
                 </div>
                 <div className="text-2xl font-bold text-emerald-400">
-                  {formatCurrency(yearlySavings)}
+                  {formatCurrency(monthlySavings)}
                 </div>
               </div>
             </div>

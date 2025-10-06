@@ -90,10 +90,10 @@ export function TicketsDemo() {
                 {t.priority}
               </span>
             </div>
-            <div className="mt-2 text-sm font-medium leading-snug text-foreground/90">
+            <div className="mt-2 text-sm font-medium leading-snug text-foreground">
               {t.title}
             </div>
-            <div className="text-xs text-foreground/50">
+            <div className="text-xs text-foreground/70">
               Assignee: {t.assignee}
             </div>
           </button>
@@ -104,8 +104,10 @@ export function TicketsDemo() {
       <div className="bg-background overflow-auto">
         <div className="p-4 border-b border-white/10 flex items-center justify-between">
           <div>
-            <div className="text-sm text-foreground/60">Ticket</div>
-            <div className="font-semibold">{selected.title}</div>
+            <div className="text-sm text-foreground/80">Ticket</div>
+            <div className="font-semibold text-foreground">
+              {selected.title}
+            </div>
           </div>
           <button
             className="rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm"
@@ -124,7 +126,7 @@ export function TicketsDemo() {
             <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
               Suggested Reply
             </div>
-            <p className="text-sm text-foreground/80">
+            <p className="text-sm text-foreground">
               {`Wavebase suggests: "Enable S3 Block Public Access at account level and verify bucket policies. See KB: Security > S3 Hardening (Rev 3)."`}
             </p>
           </div>
@@ -140,7 +142,7 @@ function Info({ label, value }: { label: string; value: React.ReactNode }) {
       <div className="text-xs uppercase tracking-widest text-foreground/50">
         {label}
       </div>
-      <div className="text-sm font-medium text-foreground/90 mt-1">{value}</div>
+      <div className="text-sm font-medium text-foreground mt-1">{value}</div>
     </div>
   );
 }

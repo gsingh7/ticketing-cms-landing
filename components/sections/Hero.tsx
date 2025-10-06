@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { TicketsDemo } from "@/components/demos/TicketsDemo";
 import { ContentDemo } from "@/components/demos/ContentDemo";
 import { AskKBDemo } from "@/components/demos/AskKBDemo";
+import { GradientBackground } from "@/components/ui/gradient-background";
 
 type DemoTab = {
   id: string;
@@ -49,8 +50,8 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen py-32 px-4 sm:px-8 flex flex-col justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/20 to-transparent z-0 opacity-40" />
+      {/* Animated gradient background */}
+      <GradientBackground intensity="medium" animate={true} className="!z-0" />
 
       <div className="container mx-auto relative z-10">
         {/* Intro copy */}

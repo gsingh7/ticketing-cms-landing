@@ -10,13 +10,14 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/strata-logo.png"
-              alt="Wavebase Logo"
+              src="/wavebase-logo.svg"
+              alt="WaveBase Logo"
               width={32}
               height={32}
               className="w-8 h-8"
+              priority
             />
-            <span className="text-xl font-bold">Wavebase</span>
+            <span className="text-xl font-bold">WaveBase</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

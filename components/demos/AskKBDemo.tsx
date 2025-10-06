@@ -96,7 +96,7 @@ export function AskKBDemo() {
             {cites.map((c) => (
               <span
                 key={c.id}
-                className="text-[11px] px-2 py-1 rounded-full bg-muted/60 border border-white/10"
+                className="text-[11px] px-2 py-1 rounded-full bg-muted/60 border border-white/10 text-foreground"
               >
                 {c.label}
               </span>

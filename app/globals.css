@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  /* WaveBase light theme */
+  --background: #ffffff;
+  --foreground: #0b1b29; /* Deep navy */
+  --primary: #174B73; /* WaveBase navy */
+  --primary-foreground: #ffffff;
+  --accent: #14B8A6; /* Teal */
+  --accent-foreground: #05201b;
+  --muted: #f1f5f9; /* slate-100 */
+  --muted-foreground: #5b6b7a; /* slate-500 */
+}
+
+.dark {
+  /* WaveBase dark theme */
+  --background: #0a1219; /* near-navy */
+  --foreground: #e6f1f7;
+  --primary: #2B6EA6; /* brighter navy for contrast */
+  --primary-foreground: #ffffff;
+  --accent: #56E0D6; /* bright aqua */
+  --accent-foreground: #062e2a;
+  --muted: #0f1b24; /* slate-900ish */
+  --muted-foreground: #94a3b8; /* slate-400 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-ibm-plex);
+  --radius-large: 2rem;
+  --radius-medium: 1rem;
+  --radius-small: 0.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.glass-card {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-large);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, .5);
+}
+
+.dark .glass-card {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.light .glass-card {
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, .1);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-slow {
+  background-size: 200% 200%;
+  animation: gradient 12s ease infinite;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-gradient-slow {
+    animation: none !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
