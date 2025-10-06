@@ -83,11 +83,11 @@ export function AskKBDemo() {
 
   return (
     <div className="absolute inset-0 grid grid-rows-[auto_1fr_auto] w-full h-full">
-      <div className="p-3 border-b border-white/10 text-xs uppercase tracking-widest text-foreground/50">
+      <div className="p-3 border-b border-border/50 text-xs uppercase tracking-widest text-foreground/50">
         Ask the Knowledge Base
       </div>
       <div className="p-4 overflow-auto">
-        <div className="rounded-md border border-white/10 p-4 min-h-40 whitespace-pre-wrap text-sm">
+        <div className="rounded-md border border-border/50 p-4 min-h-40 whitespace-pre-wrap text-sm text-foreground">
           {answer ||
             "Ask a question to see an AI-grounded answer with citations."}
         </div>
@@ -96,7 +96,7 @@ export function AskKBDemo() {
             {cites.map((c) => (
               <span
                 key={c.id}
-                className="text-[11px] px-2 py-1 rounded-full bg-muted/60 border border-white/10 text-foreground"
+                className="text-[11px] px-2 py-1 rounded-full bg-muted/60 border border-border/50 text-foreground font-medium"
               >
                 {c.label}
               </span>
@@ -104,14 +104,14 @@ export function AskKBDemo() {
           </div>
         ) : null}
       </div>
-      <div className="p-3 border-t border-white/10 flex gap-2">
+      <div className="p-3 border-t border-border/50 flex gap-2">
         <input
-          className="flex-1 bg-muted/40 border border-white/10 rounded px-3 py-2 text-sm"
+          className="flex-1 bg-muted/40 border border-border/50 rounded px-3 py-2 text-sm text-foreground"
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
         <button
-          className="rounded bg-emerald-500 text-emerald-950 px-4 py-2 text-sm hover:bg-emerald-400"
+          className="rounded bg-emerald-500 text-emerald-950 px-4 py-2 text-sm hover:bg-emerald-400 font-medium"
           onClick={ask}
           disabled={loading}
         >

@@ -54,7 +54,7 @@ export function TicketsDemo() {
   return (
     <div className="absolute inset-0 grid grid-cols-2 w-full h-full">
       {/* List */}
-      <div className="border-r border-white/10 bg-background/50 overflow-auto min-w-[220px]">
+      <div className="border-r border-border/50 bg-muted/10 overflow-auto min-w-[220px]">
         <div className="p-3 text-xs uppercase tracking-widest text-foreground/50">
           Tickets
         </div>
@@ -68,22 +68,22 @@ export function TicketsDemo() {
           >
             <div className="flex items-center gap-2">
               <span
-                className={`text-[10px] px-2 py-0.5 rounded-full border ${
+                className={`text-[10px] px-2 py-0.5 rounded-full border font-medium ${
                   t.status === "OPEN"
-                    ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
+                    ? "bg-amber-500/20 border-amber-500/40 text-amber-700 dark:text-amber-300"
                     : t.status === "IN PROGRESS"
-                    ? "bg-blue-500/20 border-blue-500/40 text-blue-300"
-                    : "bg-emerald-500/20 border-emerald-500/40 text-emerald-300"
+                    ? "bg-blue-500/20 border-blue-500/40 text-blue-700 dark:text-blue-300"
+                    : "bg-emerald-500/20 border-emerald-500/40 text-emerald-700 dark:text-emerald-300"
                 }`}
               >
                 {t.status}
               </span>
               <span
-                className={`text-[10px] px-2 py-0.5 rounded-full border ${
+                className={`text-[10px] px-2 py-0.5 rounded-full border font-medium ${
                   t.priority === "HIGH"
-                    ? "border-red-400/40 bg-red-500/20 text-red-300"
+                    ? "border-red-400/40 bg-red-500/20 text-red-700 dark:text-red-300"
                     : t.priority === "MEDIUM"
-                    ? "border-yellow-400/40 bg-yellow-500/20 text-yellow-300"
+                    ? "border-yellow-400/40 bg-yellow-500/20 text-yellow-700 dark:text-yellow-300"
                     : "border-foreground/20 text-foreground/60"
                 }`}
               >
@@ -102,7 +102,7 @@ export function TicketsDemo() {
 
       {/* Details */}
       <div className="bg-background overflow-auto">
-        <div className="p-4 border-b border-white/10 flex items-center justify-between">
+        <div className="p-4 border-b border-border/50 flex items-center justify-between">
           <div>
             <div className="text-sm text-foreground/80">Ticket</div>
             <div className="font-semibold text-foreground">
@@ -122,7 +122,7 @@ export function TicketsDemo() {
             <Info label="Priority" value={selected.priority} />
           </div>
           <Info label="Assignee" value={selected.assignee} />
-          <div className="rounded-md border border-white/10 p-3">
+          <div className="rounded-md border border-border/50 p-3">
             <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
               Suggested Reply
             </div>
@@ -138,7 +138,7 @@ export function TicketsDemo() {
 
 function Info({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="rounded-md border border-white/10 p-3">
+    <div className="rounded-md border border-border/50 p-3">
       <div className="text-xs uppercase tracking-widest text-foreground/50">
         {label}
       </div>

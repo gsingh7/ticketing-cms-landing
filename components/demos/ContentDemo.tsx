@@ -29,12 +29,12 @@ export function ContentDemo() {
   return (
     <div className="absolute inset-0 grid grid-cols-2 w-full h-full">
       {/* Editor */}
-      <div className="border-r border-white/10 bg-background/50 p-4 overflow-auto min-w-[260px]">
+      <div className="border-r border-border/50 bg-muted/10 p-4 overflow-auto min-w-[260px]">
         <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
           Inbuilt Editor
         </div>
         <input
-          className="w-full bg-muted/40 border border-white/10 rounded px-3 py-2 text-sm mb-3"
+          className="w-full bg-muted/40 border border-border/50 rounded px-3 py-2.5 text-sm mb-3 h-11 text-foreground"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -55,7 +55,7 @@ export function ContentDemo() {
           </button>
         </div>
         <textarea
-          className="w-full h-40 bg-muted/40 border border-white/10 rounded px-3 py-2 text-sm"
+          className="w-full h-60 bg-muted/40 border border-border/50 rounded px-3 py-2 text-sm text-foreground"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
@@ -67,7 +67,7 @@ export function ContentDemo() {
             Publish to KB
           </button>
           {published ? (
-            <span className="text-[11px] px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            <span className="text-[11px] px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-medium">
               Published
             </span>
           ) : null}
@@ -79,8 +79,8 @@ export function ContentDemo() {
         <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
           Preview
         </div>
-        <div className="rounded border border-white/10 p-4">
-          <h3 className="font-semibold mb-2">{title}</h3>
+        <div className="rounded border border-border/50 p-4">
+          <h3 className="font-semibold mb-2 text-foreground">{title}</h3>
           <p className="text-sm text-foreground whitespace-pre-wrap">{body}</p>
         </div>
       </div>

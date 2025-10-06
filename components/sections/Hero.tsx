@@ -109,58 +109,66 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Demo with sidebar */}
+        {/* Demo with macOS window style */}
         <div
-          className="mt-12"
+          className="mt-12 max-w-6xl mx-auto"
           onMouseEnter={() => setAutoRotate(false)}
           onMouseLeave={() => setAutoRotate(true)}
         >
-          <div className="grid lg:grid-cols-[260px,1fr] gap-6 items-stretch">
-            <aside className="bg-muted/30 rounded-xl border border-white/10 p-4">
-              <div className="text-xs uppercase tracking-widest text-foreground/50 mb-3">
-                Explore
+          {/* macOS Window Frame */}
+          <div className="rounded-xl shadow-2xl overflow-hidden border border-border/50 bg-card">
+            {/* Window Title Bar */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border/50">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
               </div>
-              <div className="flex lg:flex-col gap-2">
-                {demoTabs.map((t, i) => (
-                  <button
-                    key={t.id}
-                    onClick={() => setActive(i)}
-                    className={`text-left rounded-lg border px-3 py-2 transition-colors w-full ${
-                      active === i
-                        ? "bg-primary/10 border-primary/30 text-primary"
-                        : "bg-background/40 border-white/10 hover:bg-muted/50"
-                    }`}
-                  >
-                    <div className="text-sm font-semibold">{t.title}</div>
-                    <div className="text-xs text-foreground/60">
-                      {t.caption}
-                    </div>
-                  </button>
-                ))}
+              <div className="flex-1 text-center text-xs text-muted-foreground font-medium">
+                Wavebase Demo
               </div>
-            </aside>
+              <div className="w-[52px]"></div> {/* Spacer for centering */}
+            </div>
 
-            <div className="relative bg-background rounded-2xl overflow-hidden shadow-2xl border border-white/10 ring-1 ring-white/10 w-full min-h-[420px] sm:min-h-[520px] lg:min-h-[600px]">
+            {/* Demo Content Area */}
+            <div className="relative bg-background min-h-[420px] sm:min-h-[520px] lg:min-h-[600px]">
               {(() => {
                 const ActiveDemo = demoTabs[active].Component;
                 return (
-                  <div className="absolute inset-0 p-2 sm:p-3 md:p-4 text-[13px] md:text-sm">
+                  <div className="absolute inset-0 p-3 sm:p-4 md:p-6 text-[13px] md:text-sm">
                     <ActiveDemo />
                   </div>
                 );
               })()}
-              <div className="absolute left-0 right-0 bottom-0 bg-background/80 backdrop-blur-sm p-3 text-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold">{demoTabs[active].title}</p>
-                    <p className="text-foreground/75">
-                      {demoTabs[active].caption}
-                    </p>
-                  </div>
-                  <div className="text-xs text-foreground/60">
-                    Auto demo {autoRotate ? "on" : "off"}
-                  </div>
-                </div>
+            </div>
+
+            {/* Bottom Tab Bar */}
+            <div className="bg-muted/30 border-t border-border/50 px-4 py-3">
+              <div className="flex items-center justify-center gap-2">
+                {demoTabs.map((t, i) => (
+                  <button
+                    key={t.id}
+                    onClick={() => setActive(i)}
+                    className={`group relative rounded-lg px-4 py-2.5 transition-all duration-200 ${
+                      active === i
+                        ? "bg-primary text-primary-foreground shadow-md"
+                        : "bg-background/60 hover:bg-background text-foreground/70 hover:text-foreground"
+                    }`}
+                  >
+                    <div className="text-sm font-semibold">{t.title}</div>
+                    {active === i && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-primary rounded-lg -z-10"
+                        transition={{ type: "spring", duration: 0.5 }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+              <div className="text-center mt-2 text-xs text-muted-foreground">
+                {demoTabs[active].caption} • Auto rotate:{" "}
+                {autoRotate ? "on" : "off"}
               </div>
             </div>
           </div>
