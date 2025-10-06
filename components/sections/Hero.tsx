@@ -96,7 +96,7 @@ export function Hero() {
               Book a demo
             </a>
             <a
-              href="#how-it-works"
+              href="https://toplevelview.com/contact-us"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 uppercase tracking-wide font-semibold hover:bg-accent/10 text-accent h-14 px-8"
