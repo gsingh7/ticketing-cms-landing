@@ -14,9 +14,11 @@ export function GradientBackground({
   ...props
 }: GradientBackgroundProps) {
   const { theme } = useTheme();
-  const [isDark, setIsDark] = useState(theme === "dark");
+  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     if (theme === "system") {
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
       setIsDark(mediaQuery.matches);
@@ -29,6 +31,37 @@ export function GradientBackground({
       setIsDark(theme === "dark");
     }
   }, [theme]);
+
+  // Use default colors during SSR and initial client render to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <div
+        className={cn(
+          "fixed inset-0 z-[-1] overflow-hidden",
+          animate && "animate-gradient-slow",
+          className
+        )}
+        {...props}
+      >
+        <div
+          className="absolute left-0 top-0 bottom-0 w-[40vw]"
+          style={{
+            background: `linear-gradient(90deg, #14B8A640 -10%, transparent 100%)`,
+            filter: `blur(100px)`,
+            opacity: 0.7,
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 bottom-0 w-[40vw]"
+          style={{
+            background: `linear-gradient(-90deg, #174B7340 -10%, transparent 100%)`,
+            filter: `blur(100px)`,
+            opacity: 0.7,
+          }}
+        />
+      </div>
+    );
+  }
 
   // Base colors from theme
   const primaryColor = isDark ? "#56E0D6" : "#14B8A6"; // accent colors from theme
