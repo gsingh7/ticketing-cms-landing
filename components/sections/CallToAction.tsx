@@ -32,10 +32,10 @@ function FAQ() {
       a: (
         <div className="space-y-3">
           <p>
-            Most companies start with our pricing solution because we can have
-            you live the same day in our sandbox environment. Our timekeeping
-            solution can also be implemented for testing or roll out within two
-            weeks of approval.
+            Most companies can experience with our product with a subset of
+            their data and view immediate results. We can then estimate the
+            migration based on the amount of data and how it is currently stored
+            in your organisation.
           </p>
           <p className="text-foreground/80">
             <span className="font-medium">What this means for you:</span> You
